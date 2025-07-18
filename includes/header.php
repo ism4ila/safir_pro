@@ -16,23 +16,24 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="SAFIR - Agence de voyages et de tourisme">
     <meta property="og:description" content="L'accomplissement parfait de votre pèlerinage reste notre priorité ! Voyages, tourisme, billetterie et organisation de pèlerinage.">
-    <meta property="og:url" content="https://votre-domaine.com">
+    <meta property="og:url" content="<?php echo 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
     <meta property="og:site_name" content="SAFIR">
-    <meta property="og:image" content="https://votre-domaine.com/assets/images/logo-safir.png">
+    <meta property="og:image" content="<?php echo 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['REQUEST_URI']) . '/assets/images/safir-logo-social.jpg'; ?>">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="SAFIR - Agence de voyages et de tourisme">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:locale" content="fr_FR">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SAFIR - Agence de voyages et de tourisme">
     <meta name="twitter:description" content="L'accomplissement parfait de votre pèlerinage reste notre priorité ! Voyages, tourisme, billetterie et organisation de pèlerinage.">
-    <meta name="twitter:image" content="https://votre-domaine.com/assets/images/logo-safir.png">
+    <meta name="twitter:image" content="<?php echo 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['REQUEST_URI']) . '/assets/images/safir-logo-social.jpg'; ?>">
     <meta name="twitter:image:alt" content="SAFIR - Agence de voyages et de tourisme">
 
     <!-- WhatsApp -->
-    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:type" content="image/jpeg">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
@@ -43,8 +44,9 @@
     // Variables pour personnaliser selon la page
     $page_title = isset($page_title) ? $page_title : "SAFIR - Agence de voyages et de tourisme";
     $page_description = isset($page_description) ? $page_description : "L'accomplissement parfait de votre pèlerinage reste notre priorité ! Voyages, tourisme, billetterie et organisation de pèlerinage.";
-    $page_image = isset($page_image) ? $page_image : "https://votre-domaine.com/assets/images/logo-safir.png";
-    $page_url = isset($page_url) ? $page_url : "https://votre-domaine.com" . $_SERVER['REQUEST_URI'];
+    $base_url = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['HTTP_HOST'];
+    $page_image = isset($page_image) ? $page_image : $base_url . dirname($_SERVER['REQUEST_URI']) . '/assets/images/safir-logo-social.jpg';
+    $page_url = isset($page_url) ? $page_url : $base_url . $_SERVER['REQUEST_URI'];
     ?>
     <!-- SEO Meta Tags -->
     <title>SAFIR - Agence de Voyages et de Tourisme | Bertoua, Cameroun</title>
@@ -53,20 +55,28 @@
     <meta name="author" content="SAFIR - Agence de Voyages et de Tourisme">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / Facebook (Dynamic) -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://safir-agence.com/">
+    <meta property="og:url" content="<?php echo $page_url; ?>">
     <meta property="og:title" content="SAFIR - Agence de Voyages et de Tourisme">
     <meta property="og:description" content="Spécialiste du HADJ et OUMRA à Bertoua. L'accomplissement parfait de votre pèlerinage reste notre priorité.">
-    <meta property="og:image" content="assets/images/safir-logo-social.jpg">
+    <meta property="og:image" content="<?php echo $page_image; ?>">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="SAFIR">
+    
+    <!-- Force refresh for social media crawlers -->
+    <meta property="og:updated_time" content="<?php echo time(); ?>">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://safir-agence.com/">
-    <meta property="twitter:title" content="SAFIR - Agence de Voyages et de Tourisme">
-    <meta property="twitter:description" content="Spécialiste du HADJ et OUMRA à Bertoua. L'accomplissement parfait de votre pèlerinage reste notre priorité.">
-    <meta property="twitter:image" content="assets/images/safir-logo-social.jpg">
+    <!-- Twitter (Dynamic) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="<?php echo $page_url; ?>">
+    <meta name="twitter:title" content="SAFIR - Agence de Voyages et de Tourisme">
+    <meta name="twitter:description" content="Spécialiste du HADJ et OUMRA à Bertoua. L'accomplissement parfait de votre pèlerinage reste notre priorité.">
+    <meta name="twitter:image" content="<?php echo $page_image; ?>">
+    <meta name="twitter:image:alt" content="SAFIR - Agence de voyages et de tourisme">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
